@@ -1,0 +1,83 @@
+buildscript {
+	ext {
+        //springBootVersion = '1.5.3.RELEASE'
+        springBootVersion = '2.0.9.RELEASE'
+        springIOVersion = '1.0.0.RELEASE'
+        springFrameworkVersion = '4.0.5.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:${springIOVersion}"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+    
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+apply plugin: 'maven'
+
+
+dependencyManagement {
+    resolutionStrategy {
+        // 检查远程依赖是否存在更新
+        cacheChangingModulesFor 0, 'seconds'// 修改本地缓存策略
+    }
+}
+
+configurations.all {
+	//resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	// 动态版本
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    // 变化模块
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+version = "1.0-SNAPSHOT"
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.0.9.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis:2.0.9.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-aop:2.0.9.RELEASE'
+    compile 'org.apache.commons:commons-lang3:3.9'
+    compile 'org.apache.commons:commons-collections4:4.3'
+    compile 'org.apache.httpcomponents:httpclient:4.5.8'
+    compile 'org.apache.httpcomponents:httpcore:4.4.11'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.4'
+}
+//打包源代码
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives sourcesJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            snapshotRepository(url: "http://172.16.100.135:9999/nexus/content/repositories/snapshots/") {
+                authentication(userName:'admin', password:'fadslj32#@32aDFDFA3#==')
+            }
+            repository(url: "http://120.77.146.214:19998/nexus/content/repositories/releases/") {
+                authentication(userName:'admin', password:'fadslj32#@32aDFDFA3#==')
+            }
+            pom.groupId = 'com.hyx.common'
+            pom.artifactId =  project.name
+       }
+    }
+}
