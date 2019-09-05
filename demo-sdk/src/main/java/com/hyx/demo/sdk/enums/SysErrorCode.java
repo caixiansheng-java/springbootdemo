@@ -10,9 +10,9 @@ import com.hyx.demo.sdk.exception.ServiceErrorCode;
  * Copyright (c) 2019, hyx_java2012@163.com All Rights Reserved.       
  */
 public enum SysErrorCode implements ServiceErrorCode{
-	SYS_SUCC("0000","操作成功"),
+	SUCCESS("0000","操作成功"),
 	HTTP_REQUEST_ERROR("1001","http请求失败"),
-	SYS_FAIL("9999","系统错误"), 
+	SYSTEM_ERROR("9999","系统错误"), 
 	;
 	
 	private SysErrorCode(String errorCode,String errorMsg) {
