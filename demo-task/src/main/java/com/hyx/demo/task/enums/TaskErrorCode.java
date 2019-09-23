@@ -1,26 +1,30 @@
-package com.hyx.demo.sdk.enums;
+package com.hyx.demo.task.enums;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.hyx.demo.sdk.exception.ServiceErrorCode;
 
 /** 
- * @ClassName:SysErrorCode <br/> 
+ * @ClassName:TaskErrorCodes <br/> 
  * @Reason:   TODO ADD REASON. <br/> 
- * @Date:     2019年9月4日 上午11:40:10 <br/> 
+ * @Date:     2019年9月6日 下午3:47:38 <br/> 
  * @author   huangyaxiong 
  * Copyright (c) 2019, hyx_java2012@163.com All Rights Reserved.       
  */
-public enum SysErrorCode implements ServiceErrorCode{
-	SUCCESS("0000","操作成功"),
-	HTTP_REQUEST_ERROR("1001","http请求失败"),
-	SYSTEM_ERROR("9999","系统错误"), 
+public enum TaskErrorCode implements ServiceErrorCode{
+	
+	TASK_SUCCESS("TSK0000","操作成功"),
+	ERROR_POLICY("TSK0001","无效的定时策略"),
+	ERROR_JOB_ID("TSK0002","无效的JOBID"), 
+	ERROR_UPDATE("TSK0003","更新失败"),
+	TASK_FAIL("TSK9999","系统错误"), 
 	;
 	
-	private SysErrorCode(String errorCode,String errorMsg) {
+	private TaskErrorCode(String errorCode, String errorMsg) {
 		this.errorCode = errorCode;
 		this.errorMsg = errorMsg;
 	}
+
 	private String errorCode;
 	private String errorMsg;
 	
@@ -35,16 +39,17 @@ public enum SysErrorCode implements ServiceErrorCode{
 		// TODO Auto-generated method stub
 		return errorMsg;
 	}
-
+	
 	@Override
 	public boolean isSucc() {
 		if(StringUtils.isEmpty(errorCode)) {
 			return false;
 		}
-		if(errorCode.equals(SUCCESS.getErrorCode())) {
+		if(errorCode.equals(TASK_SUCCESS.getErrorCode())) {
 			return true;
 		}
 		return false;
 	}
+
 }
  

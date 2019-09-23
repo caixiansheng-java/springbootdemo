@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<jmxConfigurator />
+
+	<springProperty scope="context" name="logPath" source="logback.log.path"/>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>
+					%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{tradeNum}] [%thread] %-5level %logger{50} - %msg%n
+				</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="server" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- <file>${logPath}/server.log</file> -->
+		<file>${logPath}/server.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${logPath}/%d{yyyyMMdd}/server.log.%i
+			</fileNamePattern>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>50MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>
+					%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{tradeNum}] [%thread] %-5level %logger{50} - %msg%n
+				</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<file>${logPath}/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${logPath}/%d{yyyyMMdd}/error.log.%i
+			</fileNamePattern>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>50MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>
+					%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{tradeNum}] [%thread] %-5level %logger{50} - %msg%n
+				</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- mybatis 日志 -->
+    <logger name="org.mybatis.spring" level="debug">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.apache.ibatis" level="debug">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="java.sql" level="debug">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.loong.mq" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.apache.kafka" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.kafka" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="io.lettuce.core" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.data.redis" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="com.netflix" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.web" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="com.alibaba.dubbo" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.apache.http" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.mongodb.driver" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.web.client.RestTemplate" level="info" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.boot.web" level="info" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="springfox.documentation" level="info" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="com.ctrip.framework.apollo" level="error" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.hibernate.validator" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="server" />
+        <appender-ref ref="error" />
+    </root>
+</configuration>

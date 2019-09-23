@@ -18,4 +18,9 @@ public interface ServiceErrorCode {
      * @return
      */
     String getErrorMsg();
+    /**
+     * 判断是否成功
+     * @return
+     */
+    boolean isSucc();
 }

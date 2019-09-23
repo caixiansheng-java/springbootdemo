@@ -1,0 +1,97 @@
+buildscript {
+	ext {
+        springBootVersion = '2.0.9.RELEASE'
+        springIOVersion = '1.0.0.RELEASE'
+        springFrameworkVersion = '4.0.5.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:${springIOVersion}"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+    
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+
+
+dependencyManagement {
+    resolutionStrategy {
+        // ���Զ�������Ƿ���ڸ���
+        cacheChangingModulesFor 0, 'seconds'// �޸ı��ػ������
+    }
+}
+
+configurations.all {
+	//resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	// ��̬�汾
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    // �仯ģ��
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+    maven {url 'http://47.96.25.137:8081/nexus/content/groups/public'}
+}
+
+dependencies {
+    //spring boot
+    compile 'org.springframework.boot:spring-boot-autoconfigure'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'com.alibaba:druid-spring-boot-starter:1.1.10'
+    //quartz
+    compile 'org.quartz-scheduler:quartz:2.2.1'
+    compile 'org.quartz-scheduler:quartz-jobs:2.2.1'
+    //mybatis
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+    compile ('com.alibaba:druid-spring-boot-starter:1.1.10'){
+    	exclude group: 'org.springframework'
+    	exclude group: 'org.springframework.boot'
+    }
+    
+    compile ('com.alibaba:dubbo:2.5.3'){
+        exclude group: 'org.springframework'
+    }
+   	compile ('org.apache.zookeeper:zookeeper:3.4.6'){
+    	exclude group: 'org.slf4j'
+    }
+    compile ('com.101tec:zkclient:0.4'){
+    	exclude group: 'org.slf4j'
+    }
+    
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
+    //mysql
+    compile 'mysql:mysql-connector-java'
+    //swagger2
+    compile 'io.springfox:springfox-swagger2:2.9.2'
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+	
+	    
+    compile 'com.hyx.common:demo-sdk:1.0-SNAPSHOT'
+}
+
+
+mainClassName = 'com.hyx.demo.task.TaskApplication'
+
+//bootRepackage { 
+//	mainClass = 'com.hyx.demo.task.TaskApplication'
+//}
+
+bootJar {
+    mainClassName = 'com.hyx.demo.task.TaskApplication'
+}
+bootWar {
+    mainClassName = 'com.hyx.demo.task.TaskApplication'
+}
