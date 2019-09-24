@@ -8,6 +8,8 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /** 
  * @ClassName:TaskApplication <br/> 
  * @Reason:   TODO ADD REASON. <br/> 
@@ -17,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
+@EnableSwagger2 // Swagger的开关，表示我们在项目中启用Swagger
 @MapperScan("com.hyx.demo.task.mapper")
 @ComponentScan(basePackages={"com.hyx.demo"})
 @PropertySource("classpath:dubbo-${spring.profiles.active}.properties")

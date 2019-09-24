@@ -28,7 +28,6 @@ import io.swagger.annotations.ApiOperation;
  */
 @Api(value = " 定时任务入口", tags = " 定时任务入口", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @RestController
-@RequestMapping("/task")
 public class TaskConTroller {
 	
 	private Logger logger = LoggerFactory.getLogger(TaskConTroller.class);
@@ -90,6 +89,18 @@ public class TaskConTroller {
 			sysJob.setMisFirePolicy(misFirePolicy);
 			sysJob.setTmSmp(DateTimeUtils.getCurrDtTm());
 			resp = sysJobService.updJobCron(sysJob);
+		} catch (Exception e) {
+			resp = new BaseResp(TaskErrorCode.TASK_FAIL);
+			logger.info("添加异常-{}",e);
+		} finally {
+			logger.info("操作返回结果-",JSON.toJSONString(resp));
+		}
+		return resp;
+	}
+	@RequestMapping(value = "/addJobTest")
+	public BaseResp addJobTest(@RequestParam(name = "misFirePolicy" , defaultValue = TaskConstants.MISFIRE_DEFAULT) String misFirePolicy) {
+		BaseResp resp = new BaseResp(TaskErrorCode.TASK_SUCCESS);
+		try {
 		} catch (Exception e) {
 			resp = new BaseResp(TaskErrorCode.TASK_FAIL);
 			logger.info("添加异常-{}",e);

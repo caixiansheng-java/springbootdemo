@@ -41,7 +41,7 @@ public class WebLogAspect {
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
     // 申明一个切点 里面是 execution表达式
-    @Pointcut("execution(public * com.hyx..*.controller..*(..))")
+    @Pointcut("execution(public * com.hyx.demo..*.controller..*(..))")
     private void controllerAspect() {
     }
 

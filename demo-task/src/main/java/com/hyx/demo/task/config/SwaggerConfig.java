@@ -11,7 +11,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2 // Swagger的开关，表示我们在项目中启用Swagger
 @Configuration // 声名这是一个配置类
 public class SwaggerConfig {
     // controller接口所在的包

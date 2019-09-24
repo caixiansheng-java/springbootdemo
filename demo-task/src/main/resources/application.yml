@@ -1,5 +1,5 @@
 server:
-   port: 18080
+   port: 8701
    context-path: /task
 spring: 
    profiles:
