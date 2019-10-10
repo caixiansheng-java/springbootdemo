@@ -19,3 +19,4 @@ gradle
 gradlew*
 out/
 .gradle/
+*.log

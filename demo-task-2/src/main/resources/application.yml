@@ -1,9 +1,0 @@
-server:
-   port: 8701
-   context-path: /task
-spring: 
-   profiles:
-      active: dev
-mybatis: 
-   type-aliases-package: com.hyx.demo.task.mapper
-   mapper-locations: classpath:com.hyx.demo.task.mappper/*.xml
