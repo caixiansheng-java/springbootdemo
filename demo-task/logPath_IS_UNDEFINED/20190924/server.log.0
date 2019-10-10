@@ -1,0 +1,102 @@
+2019-09-24 09:29:58.028 [] [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2019-09-24 09:29:58.037 [] [main] DEBUG org.mybatis.spring.mapper.ClassPathMapperScanner - Creating MapperFactoryBean with name 'TTaskSysJobLogMapper' and 'com.hyx.demo.task.mapper.TTaskSysJobLogMapper' mapperInterface
+2019-09-24 09:29:58.037 [] [main] DEBUG org.mybatis.spring.mapper.ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'TTaskSysJobLogMapper'.
+2019-09-24 09:29:58.037 [] [main] DEBUG org.mybatis.spring.mapper.ClassPathMapperScanner - Creating MapperFactoryBean with name 'TTaskSysJobMapper' and 'com.hyx.demo.task.mapper.TTaskSysJobMapper' mapperInterface
+2019-09-24 09:29:58.038 [] [main] DEBUG org.mybatis.spring.mapper.ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'TTaskSysJobMapper'.
+2019-09-24 09:29:58.208 [] [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-09-24 09:29:58.225 [] [main] DEBUG o.s.d.r.config.RepositoryConfigurationDelegate - Scanning for repositories in packages com.hyx.demo.task.
+2019-09-24 09:29:58.246 [] [main] DEBUG o.s.d.r.config.RepositoryConfigurationDelegate - Finished repository scanning.
+2019-09-24 09:29:59.723 [] [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8701"]
+2019-09-24 09:29:59.740 [] [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-09-24 09:29:59.741 [] [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.39
+2019-09-24 09:29:59.750 [] [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_162\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jdk1.8.0_162/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_162/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_162/bin/../jre/lib/amd64;C:\Program Files\Java\jdk1.8.0_162\bin;C:\Program Files\Java\jdk1.8.0_162\jre\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;E:\tools\work\Git\cmd;F:\worktoolsspace\gradle-5.4.1\bin;F:\worktoolsspace\apache-maven-3.6.1\bin;C:\Users\Administrator\AppData\Local\BypassRuntm;C:\Users\Administrator\Desktop;;.]
+2019-09-24 09:29:59.874 [] [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-09-24 09:30:00.175 [] [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-09-24 09:30:00.474 [] [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-09-24 09:30:00.575 [] [main] DEBUG org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+2019-09-24 09:30:01.271 [] [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2019-09-24 09:30:01.291 [] [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2019-09-24 09:30:01.292 [] [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created.
+2019-09-24 09:30:01.293 [] [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2019-09-24 09:30:01.294 [] [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2019-09-24 09:30:01.295 [] [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2019-09-24 09:30:01.295 [] [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1
+2019-09-24 09:30:01.295 [] [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@5416f8db
+2019-09-24 09:30:01.311 [] [main] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2019-09-24 09:30:01.316 [] [main] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a44cfc0] was not registered for synchronization because synchronization is not active
+2019-09-24 09:30:01.324 [] [main] DEBUG o.m.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@771a7d53] will not be managed by Spring
+2019-09-24 09:30:01.328 [] [main] DEBUG com.hyx.demo.task.mapper.TTaskSysJobMapper.listAll - ==>  Preparing: select JOB_ID, JOB_NAME, JOB_GROUP, METHOD_NAME, METHOD_PARAMS, CRON_EXPRESSION, MIS_FIRE_POLICY, STATUS, CRE_OPR, CRE_DT, CRE_TM, UPD_OPR, UPD_DT, UPD_TM, RMK, TM_SMP from T_TASK_SYS_JOB where 1=1 
+2019-09-24 09:30:01.364 [] [main] DEBUG com.hyx.demo.task.mapper.TTaskSysJobMapper.listAll - ==> Parameters: 
+2019-09-24 09:30:01.444 [] [main] DEBUG com.hyx.demo.task.mapper.TTaskSysJobMapper.listAll - <==      Total: 0
+2019-09-24 09:30:01.445 [] [main] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a44cfc0]
+2019-09-24 09:30:01.446 [] [main] INFO  com.hyx.demo.task.service.SysJobService - ==============没有定时任务需要执行==============
+2019-09-24 09:30:01.554 [] [main] DEBUG i.n.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2019-09-24 09:30:01.587 [] [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2019-09-24 09:30:01.587 [] [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2019-09-24 09:30:01.608 [] [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+2019-09-24 09:30:01.610 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2019-09-24 09:30:01.610 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2019-09-24 09:30:01.611 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2019-09-24 09:30:01.611 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2019-09-24 09:30:01.612 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2019-09-24 09:30:01.612 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2019-09-24 09:30:01.613 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2019-09-24 09:30:01.613 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2019-09-24 09:30:01.613 [] [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2019-09-24 09:30:01.613 [] [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2019-09-24 09:30:01.614 [] [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\ADMINI~1\AppData\Local\Temp (java.io.tmpdir)
+2019-09-24 09:30:01.614 [] [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2019-09-24 09:30:01.615 [] [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2019-09-24 09:30:01.615 [] [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 1883242496 bytes
+2019-09-24 09:30:01.615 [] [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2019-09-24 09:30:01.616 [] [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2019-09-24 09:30:01.616 [] [main] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1de0641b
+2019-09-24 09:30:01.627 [] [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2019-09-24 09:30:01.638 [] [main] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+2019-09-24 09:30:01.732 [] [main] DEBUG reactor.core.publisher.UnsafeSupport - Starting UnsafeSupport init in Java 1.8
+2019-09-24 09:30:01.733 [] [main] DEBUG reactor.core.publisher.UnsafeSupport - Unsafe is available
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2019-09-24 09:30:01.815 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2019-09-24 09:30:01.816 [] [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2019-09-24 09:30:01.819 [] [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2019-09-24 09:30:01.819 [] [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2019-09-24 09:30:02.292 [] [Timer-0] DEBUG org.quartz.utils.UpdateChecker - Checking for available updated version of Quartz...
+2019-09-24 09:30:02.733 [] [Timer-0] DEBUG org.quartz.utils.UpdateChecker - Quartz version update check failed: Server returned HTTP response code: 403 for URL: http://www.terracotta.org/kit/reflector?kitID=quartz&pageID=update.properties&id=-1062723591&os-name=Windows+7&jvm-name=Java+HotSpot%28TM%29+64-Bit+Server+VM&jvm-version=1.8.0_162&platform=amd64&tc-version=2.2.1&tc-product=Quartz&source=Quartz&uptime-secs=1&patch=UNKNOWN
+2019-09-24 09:30:04.659 [] [main] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2019-09-24 09:30:04.659 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:30:04.679 [] [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8701"]
+2019-09-24 09:30:04.688 [] [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-09-24 09:30:32.013 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:30:56.471 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:31:19.554 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:31:43.435 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:32:09.794 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:32:37.396 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:32:42.403 [] [http-nio-8701-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-09-24 09:33:02.787 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:33:27.432 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:33:56.557 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:34:22.408 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:34:46.029 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:35:09.457 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:35:39.211 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:36:06.908 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:36:35.592 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:37:04.533 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:37:29.129 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers
+2019-09-24 09:37:52.526 [] [quartzScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of 0 triggers

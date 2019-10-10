@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyx.demo.task.mapper.TTaskSysJobMapper">
+  <resultMap id="BaseResultMap" type="com.hyx.demo.task.domain.TTaskSysJob">
+    <id column="JOB_ID" jdbcType="INTEGER" property="jobId" />
+    <result column="JOB_NAME" jdbcType="VARCHAR" property="jobName" />
+    <result column="JOB_GROUP" jdbcType="VARCHAR" property="jobGroup" />
+    <result column="METHOD_NAME" jdbcType="VARCHAR" property="methodName" />
+    <result column="METHOD_PARAMS" jdbcType="VARCHAR" property="methodParams" />
+    <result column="CRON_EXPRESSION" jdbcType="VARCHAR" property="cronExpression" />
+    <result column="MIS_FIRE_POLICY" jdbcType="VARCHAR" property="misFirePolicy" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CRE_OPR" jdbcType="VARCHAR" property="creOpr" />
+    <result column="CRE_DT" jdbcType="VARCHAR" property="creDt" />
+    <result column="CRE_TM" jdbcType="VARCHAR" property="creTm" />
+    <result column="UPD_OPR" jdbcType="VARCHAR" property="updOpr" />
+    <result column="UPD_DT" jdbcType="VARCHAR" property="updDt" />
+    <result column="UPD_TM" jdbcType="VARCHAR" property="updTm" />
+    <result column="RMK" jdbcType="VARCHAR" property="rmk" />
+    <result column="TM_SMP" jdbcType="VARCHAR" property="tmSmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JOB_ID, JOB_NAME, JOB_GROUP, METHOD_NAME, METHOD_PARAMS, CRON_EXPRESSION, MIS_FIRE_POLICY, 
+    STATUS, CRE_OPR, CRE_DT, CRE_TM, UPD_OPR, UPD_DT, UPD_TM, RMK, TM_SMP
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_TASK_SYS_JOB
+    where JOB_ID = #{jobId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_TASK_SYS_JOB
+    where JOB_ID = #{jobId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hyx.demo.task.domain.TTaskSysJob">
+    insert into T_TASK_SYS_JOB (JOB_ID, JOB_NAME, JOB_GROUP, 
+      METHOD_NAME, METHOD_PARAMS, CRON_EXPRESSION, 
+      MIS_FIRE_POLICY, STATUS, CRE_OPR, 
+      CRE_DT, CRE_TM, UPD_OPR, 
+      UPD_DT, UPD_TM, RMK, 
+      TM_SMP)
+    values (#{jobId,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR}, #{jobGroup,jdbcType=VARCHAR}, 
+      #{methodName,jdbcType=VARCHAR}, #{methodParams,jdbcType=VARCHAR}, #{cronExpression,jdbcType=VARCHAR}, 
+      #{misFirePolicy,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{creOpr,jdbcType=VARCHAR}, 
+      #{creDt,jdbcType=VARCHAR}, #{creTm,jdbcType=VARCHAR}, #{updOpr,jdbcType=VARCHAR}, 
+      #{updDt,jdbcType=VARCHAR}, #{updTm,jdbcType=VARCHAR}, #{rmk,jdbcType=VARCHAR}, 
+      #{tmSmp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hyx.demo.task.domain.TTaskSysJob">
+    insert into T_TASK_SYS_JOB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jobId != null">
+        JOB_ID,
+      </if>
+      <if test="jobName != null">
+        JOB_NAME,
+      </if>
+      <if test="jobGroup != null">
+        JOB_GROUP,
+      </if>
+      <if test="methodName != null">
+        METHOD_NAME,
+      </if>
+      <if test="methodParams != null">
+        METHOD_PARAMS,
+      </if>
+      <if test="cronExpression != null">
+        CRON_EXPRESSION,
+      </if>
+      <if test="misFirePolicy != null">
+        MIS_FIRE_POLICY,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="creOpr != null">
+        CRE_OPR,
+      </if>
+      <if test="creDt != null">
+        CRE_DT,
+      </if>
+      <if test="creTm != null">
+        CRE_TM,
+      </if>
+      <if test="updOpr != null">
+        UPD_OPR,
+      </if>
+      <if test="updDt != null">
+        UPD_DT,
+      </if>
+      <if test="updTm != null">
+        UPD_TM,
+      </if>
+      <if test="rmk != null">
+        RMK,
+      </if>
+      <if test="tmSmp != null">
+        TM_SMP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="jobName != null">
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobGroup != null">
+        #{jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="methodParams != null">
+        #{methodParams,jdbcType=VARCHAR},
+      </if>
+      <if test="cronExpression != null">
+        #{cronExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="misFirePolicy != null">
+        #{misFirePolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creOpr != null">
+        #{creOpr,jdbcType=VARCHAR},
+      </if>
+      <if test="creDt != null">
+        #{creDt,jdbcType=VARCHAR},
+      </if>
+      <if test="creTm != null">
+        #{creTm,jdbcType=VARCHAR},
+      </if>
+      <if test="updOpr != null">
+        #{updOpr,jdbcType=VARCHAR},
+      </if>
+      <if test="updDt != null">
+        #{updDt,jdbcType=VARCHAR},
+      </if>
+      <if test="updTm != null">
+        #{updTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk != null">
+        #{rmk,jdbcType=VARCHAR},
+      </if>
+      <if test="tmSmp != null">
+        #{tmSmp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyx.demo.task.domain.TTaskSysJob">
+    update T_TASK_SYS_JOB
+    <set>
+      <if test="jobName != null">
+        JOB_NAME = #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobGroup != null">
+        JOB_GROUP = #{jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        METHOD_NAME = #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="methodParams != null">
+        METHOD_PARAMS = #{methodParams,jdbcType=VARCHAR},
+      </if>
+      <if test="cronExpression != null">
+        CRON_EXPRESSION = #{cronExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="misFirePolicy != null">
+        MIS_FIRE_POLICY = #{misFirePolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creOpr != null">
+        CRE_OPR = #{creOpr,jdbcType=VARCHAR},
+      </if>
+      <if test="creDt != null">
+        CRE_DT = #{creDt,jdbcType=VARCHAR},
+      </if>
+      <if test="creTm != null">
+        CRE_TM = #{creTm,jdbcType=VARCHAR},
+      </if>
+      <if test="updOpr != null">
+        UPD_OPR = #{updOpr,jdbcType=VARCHAR},
+      </if>
+      <if test="updDt != null">
+        UPD_DT = #{updDt,jdbcType=VARCHAR},
+      </if>
+      <if test="updTm != null">
+        UPD_TM = #{updTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk != null">
+        RMK = #{rmk,jdbcType=VARCHAR},
+      </if>
+      <if test="tmSmp != null">
+        TM_SMP = #{tmSmp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where JOB_ID = #{jobId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyx.demo.task.domain.TTaskSysJob">
+    update T_TASK_SYS_JOB
+    set JOB_NAME = #{jobName,jdbcType=VARCHAR},
+      JOB_GROUP = #{jobGroup,jdbcType=VARCHAR},
+      METHOD_NAME = #{methodName,jdbcType=VARCHAR},
+      METHOD_PARAMS = #{methodParams,jdbcType=VARCHAR},
+      CRON_EXPRESSION = #{cronExpression,jdbcType=VARCHAR},
+      MIS_FIRE_POLICY = #{misFirePolicy,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      CRE_OPR = #{creOpr,jdbcType=VARCHAR},
+      CRE_DT = #{creDt,jdbcType=VARCHAR},
+      CRE_TM = #{creTm,jdbcType=VARCHAR},
+      UPD_OPR = #{updOpr,jdbcType=VARCHAR},
+      UPD_DT = #{updDt,jdbcType=VARCHAR},
+      UPD_TM = #{updTm,jdbcType=VARCHAR},
+      RMK = #{rmk,jdbcType=VARCHAR},
+      TM_SMP = #{tmSmp,jdbcType=VARCHAR}
+    where JOB_ID = #{jobId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="listAll" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_TASK_SYS_JOB
+    where 1=1
+  </select>
+</mapper>

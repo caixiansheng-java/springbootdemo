@@ -1,6 +1,7 @@
 server:
    port: 8701
-   context-path: /task
+   servlet: 
+      context-path: /task
 spring: 
    profiles:
       active: dev

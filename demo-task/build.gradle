@@ -27,9 +27,7 @@ configurations.all {
 }
 
 repositories {
-	mavenLocal()
-    mavenCentral()
-    maven {url 'http://47.96.25.137:8081/nexus/content/groups/public'}
+    maven {url 'http://114.67.96.200:8081/nexus/content/groups/public'}
 }
 
 dependencies {

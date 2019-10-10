@@ -65,11 +65,11 @@ artifacts {
 uploadArchives {
     repositories {
         mavenDeployer {
-            snapshotRepository(url: "http://47.96.25.137:8081/nexus/content/repositories/snapshots/") {
-                authentication(userName:'admin', password:'Liandie@3882#')
+            snapshotRepository(url: "http://114.67.96.200:8081/nexus/content/repositories/snapshots/") {
+                authentication(userName:'admin', password:'admin123')
             }
-            repository(url: "http://http://47.96.25.137:8081/nexus/content/repositories/releases/") {
-                authentication(userName:'admin', password:'Liandie@3882#')
+            repository(url: "http://114.67.96.200:8081/nexus/content/repositories/releases/") {
+                authentication(userName:'admin', password:'admin123')
             }
             pom.groupId = 'com.hyx.common'
             pom.artifactId =  project.name
