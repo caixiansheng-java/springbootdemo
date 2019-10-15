@@ -1,0 +1,78 @@
+buildscript {
+	ext {
+        springBootVersion = '2.0.9.RELEASE'
+        springFrameworkVersion = '4.0.5.RELEASE'
+    }
+    repositories {
+    	maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+    
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'application'
+
+
+configurations.all {
+	//resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	// ��̬�汾
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    // �仯ģ��
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+    maven {url 'http://114.67.96.200:8081/nexus/content/groups/public'}
+}
+
+dependencies {
+    //spring boot
+    compile 'org.springframework.boot:spring-boot-autoconfigure'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.alibaba:druid-spring-boot-starter:1.1.10'
+    //mybatis
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+    compile ('com.alibaba:druid-spring-boot-starter:1.1.10'){
+    	exclude group: 'org.springframework'
+    	exclude group: 'org.springframework.boot'
+    }
+    
+    compile ('com.alibaba:dubbo:2.6.1'){
+        exclude group: 'org.springframework'
+    }
+   	compile ('org.apache.zookeeper:zookeeper:3.4.6'){
+    	exclude group: 'org.slf4j'
+    }
+    compile ('com.101tec:zkclient:0.4'){
+    	exclude group: 'org.slf4j'
+    }
+    
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
+    //mysql
+    compile 'mysql:mysql-connector-java:8.0.17'
+    //swagger2
+    compile 'io.springfox:springfox-swagger2:2.9.2'
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+	//web项目引入
+	compile 'javax.servlet:jstl:1.2'
+	compile 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.27'
+    compile 'com.hyx.common:demo-sdk:1.0-SNAPSHOT'
+}
+
+bootJar {
+    mainClassName = 'com.hyx.demo.portal.PortalApplication'
+}
+bootWar {
+    mainClassName = 'com.hyx.demo.portal.PortalApplication'
+}

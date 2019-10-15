@@ -1,0 +1,10 @@
+server:
+   port: 8702
+   servlet: 
+      context-path: /portal
+spring: 
+   profiles:
+      active: dev
+mybatis: 
+   type-aliases-package: com.hyx.demo.portal.mapper
+   mapper-locations: classpath:com.hyx.demo.portal.mappper/*.xml
