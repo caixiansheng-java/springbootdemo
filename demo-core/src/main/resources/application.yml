@@ -1,0 +1,10 @@
+server:
+   port: 8703
+   servlet: 
+      context-path: /core
+spring: 
+   profiles:
+      active: dev
+mybatis: 
+   type-aliases-package: com.hyx.demo.core.mapper
+   mapper-locations: classpath:com.hyx.demo.core.mappper/*.xml

@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+        springIOVersion = '1.0.0.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:${springIOVersion}"
+    }
+    
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+dependencyManagement {
+    resolutionStrategy {
+        cacheChangingModulesFor 0, 'seconds'// 
+    }
+}
+
+configurations.all {
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+
+repositories {
+    maven {url 'http://47.96.25.137:8081/nexus/content/groups/public'}
+}
+
+version = "1.0-SNAPSHOT"
+
+dependencies {
+	compile 'com.hyx.common:demo-sdk:1.0-SNAPSHOT'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives sourcesJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            snapshotRepository(url: "http://114.67.96.200:8081/nexus/content/repositories/snapshots/") {
+                authentication(userName:'admin', password:'admin123')
+            }
+            repository(url: "http://114.67.96.200:8081/nexus/content/repositories/releases/") {
+                authentication(userName:'admin', password:'admin123')
+            }
+            pom.groupId = 'com.hyx.common'
+            pom.artifactId =  project.name
+       }
+    }
+}
