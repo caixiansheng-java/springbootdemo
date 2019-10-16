@@ -35,6 +35,7 @@ dubbo:
       port: 20880
    registry: 
       address: zookeeper://114.67.96.200:2181
+   packageName: com.hyx.demo.core.dubbo.providers
       
   
   

@@ -1,8 +1,15 @@
 package com.hyx.demo.portal.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.hyx.demo.portal.dubbo.consumers.CommonDubboConsumers;
+import com.hyx.demo.sdk.vo.BaseResultResp;
+
+import io.swagger.annotations.Authorization;
 
 /** 
  * @ClassName:PortalTestController <br/> 
@@ -15,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("test")
 public class PortalTestController {
 	
+	@Autowired
+	private CommonDubboConsumers consumers;
 	@RequestMapping(value="/test")
 	public String test(){
 		System.out.println("redirect to home page!");
@@ -25,6 +34,12 @@ public class PortalTestController {
 	public String home(){
 		System.out.println("redirect to home page!");
 		return "/index";
+	}
+
+	@RequestMapping(value="/testDubbo")
+	@ResponseBody
+	public BaseResultResp<String> testDubbo(){
+		return consumers.testDubbo("12345");
 	}
 
 }

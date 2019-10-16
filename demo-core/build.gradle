@@ -47,12 +47,12 @@ dependencies {
     compile ('com.alibaba:dubbo:2.6.1'){
         exclude group: 'org.springframework'
     }
-   	compile ('org.apache.zookeeper:zookeeper:3.4.14'){
-    	exclude group: 'org.slf4j'
-    }
-    compile ('com.101tec:zkclient:0.4'){
-    	exclude group: 'org.slf4j'
-    }
+   	//compile ('org.apache.zookeeper:zookeeper:3.4.14'){
+    //	exclude group: 'org.slf4j'
+    //}
+    //compile ('com.101tec:zkclient:0.4'){
+    //	exclude group: 'org.slf4j'
+    //}
     
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
     //mysql

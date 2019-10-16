@@ -30,6 +30,12 @@ spring:
       view: 
          prefix: /pages
          suffix: .jsp
-      
-  
+#dubbo配置
+dubbo: 
+   application: 
+      name: dubbo-application-portal
+   registry: 
+      address: zookeeper://114.67.96.200:2181
+   consumer: 
+      timeout: 15000  
   

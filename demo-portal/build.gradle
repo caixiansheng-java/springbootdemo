@@ -50,13 +50,7 @@ dependencies {
     compile ('com.alibaba:dubbo:2.6.1'){
         exclude group: 'org.springframework'
     }
-   	compile ('org.apache.zookeeper:zookeeper:3.4.6'){
-    	exclude group: 'org.slf4j'
-    }
-    compile ('com.101tec:zkclient:0.4'){
-    	exclude group: 'org.slf4j'
-    }
-    
+    compile 'com.alibaba.boot:dubbo-spring-boot-starter:0.2.0'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
     //mysql
     compile 'mysql:mysql-connector-java:8.0.17'
@@ -68,6 +62,8 @@ dependencies {
 	compile 'javax.servlet:jstl:1.2'
 	compile 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.27'
     compile 'com.hyx.common:demo-sdk:1.0-SNAPSHOT'
+    compile 'com.hyx.common:demo-core-rs:1.0-SNAPSHOT'
+    
 }
 
 bootJar {
